@@ -1,0 +1,12 @@
+/home/ennm/projects/Nrat/Nrat.DotnetTest/bin/Debug/net5.0/Nrat.DotnetTest.deps.json
+/home/ennm/projects/Nrat/Nrat.DotnetTest/bin/Debug/net5.0/Nrat.DotnetTest.dll
+/home/ennm/projects/Nrat/Nrat.DotnetTest/bin/Debug/net5.0/ref/Nrat.DotnetTest.dll
+/home/ennm/projects/Nrat/Nrat.DotnetTest/bin/Debug/net5.0/Nrat.DotnetTest.pdb
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.csprojAssemblyReference.cache
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.GeneratedMSBuildEditorConfig.editorconfig
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.AssemblyInfoInputs.cache
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.AssemblyInfo.cs
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.csproj.CoreCompileInputs.cache
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.dll
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/ref/Nrat.DotnetTest.dll
+/home/ennm/projects/Nrat/Nrat.DotnetTest/obj/Debug/net5.0/Nrat.DotnetTest.pdb

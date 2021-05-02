@@ -1,0 +1,12 @@
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/bin/Debug/net5.0/Nrat.AnsiTerminal.deps.json
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/bin/Debug/net5.0/Nrat.AnsiTerminal.dll
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/bin/Debug/net5.0/ref/Nrat.AnsiTerminal.dll
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/bin/Debug/net5.0/Nrat.AnsiTerminal.pdb
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.csprojAssemblyReference.cache
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.GeneratedMSBuildEditorConfig.editorconfig
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.AssemblyInfoInputs.cache
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.AssemblyInfo.cs
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.csproj.CoreCompileInputs.cache
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.dll
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/ref/Nrat.AnsiTerminal.dll
+/home/ennm/projects/Nrat/Nrat.AnsiTerminal/obj/Debug/net5.0/Nrat.AnsiTerminal.pdb
