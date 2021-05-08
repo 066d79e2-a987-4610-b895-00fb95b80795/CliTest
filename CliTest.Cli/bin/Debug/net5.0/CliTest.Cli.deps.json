@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CliTest.Cli/1.0.0": {
+        "dependencies": {
+          "CliTest.AnsiTerminal": "1.0.0",
+          "CliTest.DotnetTest": "1.0.0"
+        },
+        "runtime": {
+          "CliTest.Cli.dll": {}
+        }
+      },
+      "CliTest.AnsiTerminal/1.0.0": {
+        "runtime": {
+          "CliTest.AnsiTerminal.dll": {}
+        }
+      },
+      "CliTest.DotnetTest/1.0.0": {
+        "runtime": {
+          "CliTest.DotnetTest.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CliTest.Cli/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CliTest.AnsiTerminal/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CliTest.DotnetTest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

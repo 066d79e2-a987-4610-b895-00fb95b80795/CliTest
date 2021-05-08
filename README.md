@@ -1,3 +1,3 @@
 # Nrat
 
-A .NET test runner for the CLI, using `dotnet test` in the background.
+A .NET test runner for the CLI, implemented on top of `dotnet test`.

@@ -1,0 +1,107 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "CliTest.AnsiTerminal/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CliTest.AnsiTerminal.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CliTest.AnsiTerminal.dll": {}
+        }
+      },
+      "CliTest.DotnetTest/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/CliTest.DotnetTest.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CliTest.DotnetTest.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CliTest.AnsiTerminal/1.0.0": {
+      "type": "project",
+      "path": "../CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj",
+      "msbuildProject": "../CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj"
+    },
+    "CliTest.DotnetTest/1.0.0": {
+      "type": "project",
+      "path": "../CliTest.DotnetTest/CliTest.DotnetTest.csproj",
+      "msbuildProject": "../CliTest.DotnetTest/CliTest.DotnetTest.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "CliTest.AnsiTerminal >= 1.0.0",
+      "CliTest.DotnetTest >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/ennm/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/ennm/projects/CliTest/CliTest.Cli/CliTest.Cli.csproj",
+      "projectName": "CliTest.Cli",
+      "projectPath": "/home/ennm/projects/CliTest/CliTest.Cli/CliTest.Cli.csproj",
+      "packagesPath": "/home/ennm/.nuget/packages/",
+      "outputPath": "/home/ennm/projects/CliTest/CliTest.Cli/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/ennm/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "/home/ennm/projects/CliTest/CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj": {
+              "projectPath": "/home/ennm/projects/CliTest/CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj"
+            },
+            "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj": {
+              "projectPath": "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
