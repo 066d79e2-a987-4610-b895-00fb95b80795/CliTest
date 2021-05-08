@@ -12,14 +12,14 @@
           "bin/placeholder/CliTest.AnsiTerminal.dll": {}
         }
       },
-      "CliTest.DotnetTest/1.0.0": {
+      "CliTest.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/CliTest.DotnetTest.dll": {}
+          "bin/placeholder/CliTest.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CliTest.DotnetTest.dll": {}
+          "bin/placeholder/CliTest.Core.dll": {}
         }
       }
     }
@@ -30,16 +30,16 @@
       "path": "../CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj",
       "msbuildProject": "../CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj"
     },
-    "CliTest.DotnetTest/1.0.0": {
+    "CliTest.Core/1.0.0": {
       "type": "project",
-      "path": "../CliTest.DotnetTest/CliTest.DotnetTest.csproj",
-      "msbuildProject": "../CliTest.DotnetTest/CliTest.DotnetTest.csproj"
+      "path": "../CliTest.Core/CliTest.Core.csproj",
+      "msbuildProject": "../CliTest.Core/CliTest.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "CliTest.AnsiTerminal >= 1.0.0",
-      "CliTest.DotnetTest >= 1.0.0"
+      "CliTest.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -70,8 +70,8 @@
             "/home/ennm/projects/CliTest/CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj": {
               "projectPath": "/home/ennm/projects/CliTest/CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj"
             },
-            "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj": {
-              "projectPath": "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj"
+            "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj": {
+              "projectPath": "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj"
             }
           }
         }

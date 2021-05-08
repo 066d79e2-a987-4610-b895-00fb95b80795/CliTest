@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CliTest.DotnetTest
+namespace CliTest.Core
 {
     public interface IDotnetTest
     {

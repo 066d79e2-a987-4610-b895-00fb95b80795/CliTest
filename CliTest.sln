@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.AnsiTerminal", "Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Cli", "CliTest.Cli\CliTest.Cli.csproj", "{925C3A26-846A-433E-AEE7-6DF65817E351}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.DotnetTest", "CliTest.DotnetTest\CliTest.DotnetTest.csproj", "{7FDB3171-506A-4C63-9BF6-BBC159AFF9CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Core", "CliTest.Core\CliTest.Core.csproj", "{7FDB3171-506A-4C63-9BF6-BBC159AFF9CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

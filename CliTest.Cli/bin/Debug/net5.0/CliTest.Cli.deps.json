@@ -9,7 +9,7 @@
       "CliTest.Cli/1.0.0": {
         "dependencies": {
           "CliTest.AnsiTerminal": "1.0.0",
-          "CliTest.DotnetTest": "1.0.0"
+          "CliTest.Core": "1.0.0"
         },
         "runtime": {
           "CliTest.Cli.dll": {}
@@ -20,9 +20,9 @@
           "CliTest.AnsiTerminal.dll": {}
         }
       },
-      "CliTest.DotnetTest/1.0.0": {
+      "CliTest.Core/1.0.0": {
         "runtime": {
-          "CliTest.DotnetTest.dll": {}
+          "CliTest.Core.dll": {}
         }
       }
     }
@@ -38,7 +38,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CliTest.DotnetTest/1.0.0": {
+    "CliTest.Core/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

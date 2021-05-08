@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CliTest.AnsiTerminal;
-using CliTest.DotnetTest;
+using CliTest.Core;
 
 namespace CliTest.Cli
 {

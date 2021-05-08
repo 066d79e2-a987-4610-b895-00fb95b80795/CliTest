@@ -6,9 +6,7 @@
 /home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/ref/CliTest.Cli.dll
 /home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.Cli.pdb
 /home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.AnsiTerminal.dll
-/home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.DotnetTest.dll
 /home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.AnsiTerminal.pdb
-/home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.DotnetTest.pdb
 /home/ennm/projects/CliTest/CliTest.Cli/obj/Debug/net5.0/CliTest.Cli.csprojAssemblyReference.cache
 /home/ennm/projects/CliTest/CliTest.Cli/obj/Debug/net5.0/CliTest.Cli.GeneratedMSBuildEditorConfig.editorconfig
 /home/ennm/projects/CliTest/CliTest.Cli/obj/Debug/net5.0/CliTest.Cli.AssemblyInfoInputs.cache
@@ -19,3 +17,5 @@
 /home/ennm/projects/CliTest/CliTest.Cli/obj/Debug/net5.0/ref/CliTest.Cli.dll
 /home/ennm/projects/CliTest/CliTest.Cli/obj/Debug/net5.0/CliTest.Cli.pdb
 /home/ennm/projects/CliTest/CliTest.Cli/obj/Debug/net5.0/CliTest.Cli.genruntimeconfig.cache
+/home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.Core.dll
+/home/ennm/projects/CliTest/CliTest.Cli/bin/Debug/net5.0/CliTest.Core.pdb

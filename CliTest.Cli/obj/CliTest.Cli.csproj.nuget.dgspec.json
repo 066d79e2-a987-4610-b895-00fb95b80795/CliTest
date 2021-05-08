@@ -81,8 +81,8 @@
               "/home/ennm/projects/CliTest/CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj": {
                 "projectPath": "/home/ennm/projects/CliTest/CliTest.AnsiTerminal/CliTest.AnsiTerminal.csproj"
               },
-              "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj": {
-                "projectPath": "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj"
+              "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj": {
+                "projectPath": "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj"
               }
             }
           }
@@ -115,14 +115,14 @@
         }
       }
     },
-    "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj": {
+    "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj",
-        "projectName": "CliTest.DotnetTest",
-        "projectPath": "/home/ennm/projects/CliTest/CliTest.DotnetTest/CliTest.DotnetTest.csproj",
+        "projectUniqueName": "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj",
+        "projectName": "CliTest.Core",
+        "projectPath": "/home/ennm/projects/CliTest/CliTest.Core/CliTest.Core.csproj",
         "packagesPath": "/home/ennm/.nuget/packages/",
-        "outputPath": "/home/ennm/projects/CliTest/CliTest.DotnetTest/obj/",
+        "outputPath": "/home/ennm/projects/CliTest/CliTest.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/ennm/.nuget/NuGet/NuGet.Config"

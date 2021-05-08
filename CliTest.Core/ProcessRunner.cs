@@ -2,10 +2,9 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CliTest.DotnetTest
+namespace CliTest.Core
 {
-    // XXX This should be internal
-    public static class ProcessRunner
+    internal static class ProcessRunner
     {
         public static async Task<ProcessResult> RunProcess(string program, params string[] arguments)
         {
