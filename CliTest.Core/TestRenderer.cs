@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
-using CliTest.Core;
-using CliTest.Infrastructure;
 
-namespace CliTest.Cli
+namespace CliTest.Core
 {
-    public class TestRenderer
+    internal class TestRenderer
     {
-        private readonly IAnsiTerminal terminal;
+        private readonly ITerminal terminal;
         private readonly Dictionary<IDotnetTest, int> testToLine = new();
 
-        public TestRenderer(IAnsiTerminal terminal) => this.terminal = terminal;
+        public TestRenderer(ITerminal terminal) => this.terminal = terminal;
 
         public void Draw(IDotnetTest test)
         {

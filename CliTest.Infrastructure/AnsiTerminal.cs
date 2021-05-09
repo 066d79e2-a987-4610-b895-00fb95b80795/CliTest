@@ -1,19 +1,10 @@
 ﻿using System;
 using System.IO;
+using CliTest.Core;
 
 namespace CliTest.Infrastructure
 {
-    public interface IAnsiTerminal
-    {
-        void HideCursor();
-        void MoveUp(int lines = 1);
-        void MoveDown(int lines = 1);
-        void ClearLine();
-        void Write(string text, Style? style = null);
-        void Flush();
-    }
-
-    internal class AnsiTerminal : IAnsiTerminal
+    internal class AnsiTerminal : ITerminal
     {
         private readonly Stream standardOutput;
 
@@ -45,12 +36,21 @@ namespace CliTest.Infrastructure
 
         public void ClearLine() => EscapeSequence("2K");
 
-        public void Write(string text, Style? style = null)
+        public void Write(string text, Style style = Style.None)
         {
-            style ??= Style.None;
-            EscapeSequence($"{style.Code}m");
+            EscapeSequence($"{GetStyleCode(style)}m");
             Console.Write(text);
-            EscapeSequence($"{Style.None.Code}m");
+            EscapeSequence($"{GetStyleCode(Style.None)}m");
+
+            string GetStyleCode(Style s) => s switch
+            {
+                Style.None => "0",
+                Style.BoldGrey => "1;243",
+                Style.BoldRed => "1;31",
+                Style.BoldGreen => "1;32",
+                Style.BoldYellow => "1;33",
+                _ => throw new ArgumentException("Uncovered style", nameof(style))
+            };
         }
 
         public void Flush() => standardOutput.Flush();
@@ -68,23 +68,6 @@ namespace CliTest.Infrastructure
 
     public static class AnsiTerminalFactory
     {
-        public static IAnsiTerminal CreateAnsiTerminal() => new AnsiTerminal();
-    }
-
-    public record Style
-    {
-        private Style(string code) => Code = code;
-
-        internal string Code { get; }
-
-        public static Style None => new("0");
-
-        public static Style BoldGrey => new("1;243");
-
-        public static Style BoldRed => new("1;31");
-
-        public static Style BoldGreen => new("1;32");
-
-        public static Style BoldYellow => new("1;33");
+        public static ITerminal Create() => new AnsiTerminal();
     }
 }

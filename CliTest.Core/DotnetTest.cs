@@ -53,7 +53,7 @@ namespace CliTest.Core
         public string? Output { get; private set; }
     }
 
-    public static class DotnetTestFactory
+    internal static class DotnetTestFactory
     {
         public static IDotnetTest Create(string directory, IProcessRunner processRunner) =>
             new DotnetTest(directory, processRunner);

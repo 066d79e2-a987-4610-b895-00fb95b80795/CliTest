@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CliTest.Cli
+namespace CliTest.Core
 {
     public static class ListExtensions
     {
