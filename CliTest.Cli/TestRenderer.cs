@@ -14,19 +14,17 @@ namespace CliTest.Cli
 
         public void Draw(IDotnetTest test)
         {
-            terminal.MoveDown(testToLine.Count);
             testToLine.Add(test, testToLine.Count);
             DrawTestOnCurrentLine(test);
             terminal.Write("\n");
-            terminal.MoveUp(testToLine.Count);
         }
 
         public void Redraw(IDotnetTest test)
         {
-            var lineCount = testToLine[test];
-            terminal.MoveDown(lineCount);
-            DrawTestOnCurrentLine(test);
+            var lineCount = testToLine.Count - testToLine[test];
             terminal.MoveUp(lineCount);
+            DrawTestOnCurrentLine(test);
+            terminal.MoveDown(lineCount);
         }
 
         public void WriteTestsOutput(IEnumerable<IDotnetTest> tests)
@@ -53,7 +51,7 @@ namespace CliTest.Cli
                     TestStatus.Running => "running",
                     TestStatus.Failed => "failed",
                     TestStatus.Succeeded => "succeeded",
-                    _ => throw new ArgumentException(nameof(test))
+                    _ => throw new ArgumentException("Invalid test status", nameof(test))
                 };
 
             static Style GetStatusStyle(IDotnetTest test) =>
@@ -63,7 +61,7 @@ namespace CliTest.Cli
                     TestStatus.Running => Style.BoldYellow,
                     TestStatus.Failed => Style.BoldRed,
                     TestStatus.Succeeded => Style.BoldGreen,
-                    _ => throw new ArgumentException(nameof(test))
+                    _ => throw new ArgumentException("Invalid test status", nameof(test))
                 };
         }
     }

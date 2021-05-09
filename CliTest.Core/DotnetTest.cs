@@ -9,8 +9,10 @@ namespace CliTest.Core
         string Directory { get; }
         TestStatus Status { get; }
         string? Output { get; }
-        Task Start();
+        Task Start(StartOptions options);
     }
+
+    public record StartOptions(string? Filter);
 
     public enum TestStatus
     {
@@ -24,13 +26,13 @@ namespace CliTest.Core
     {
         public DotnetTest(string directory) => Directory = directory;
 
-        public async Task Start()
+        public async Task Start(StartOptions options)
         {
             Status = TestStatus.Running;
             var processResult = await ProcessRunner.RunProcess(
                 "dotnet",
                 "test",
-                "--filter=Cat~Base",
+                $"--filter={options.Filter ?? ""}",
                 Directory);
             Status = processResult.ExitCode == 0 ? TestStatus.Succeeded : TestStatus.Failed;
             Output = processResult.Output;
@@ -47,10 +49,10 @@ namespace CliTest.Core
     {
         public static IDotnetTest Create(string directory) => new DotnetTest(directory);
 
-        public static IDotnetTest[] CreateAllTestsInDirectory(string path) =>
+        public static IDotnetTest[] CreateAllTestsInDirectory() =>
             Directory
-                .GetDirectories(path)
-                .Where(d => d.ToLowerInvariant().Contains(".tests."))
+                .GetDirectories(".")
+                .Where(d => d.ToLowerInvariant().Contains(".tests.") || d.ToLowerInvariant().Contains(".test."))
                 .Select(d => Create(d))
                 .ToArray();
     }

@@ -22,13 +22,12 @@ namespace CliTest.Cli
 
     internal static class Program
     {
-        static async Task<int> Main(string[] args)
+        internal static async Task<int> Main(string[] args)
         {
             var parseResult = CommandLine.Parser.Default.ParseArguments<Options>(args);
 
-            if (parseResult is CommandLine.NotParsed<Options> notParsed)
+            if (parseResult is CommandLine.NotParsed<Options>)
             {
-                HandleParserErrors(notParsed);
                 return 1;
             }
 
@@ -47,7 +46,7 @@ namespace CliTest.Cli
             Directory.SetCurrentDirectory(options.TargetDirectory);
             var terminal = AnsiTerminalFactory.CreateAnsiTerminal();
             var renderer = new TestRenderer(terminal);
-            var tests = DotnetTestFactory.CreateAllTestsInDirectory(options.TargetDirectory);
+            var tests = DotnetTestFactory.CreateAllTestsInDirectory();
             var testsToStart = tests.ToList();
             var testStartedTasks = new List<Task<IDotnetTest>>();
 
@@ -66,14 +65,14 @@ namespace CliTest.Cli
 
                     async Task<IDotnetTest> CreateTestStartedTask()
                     {
-                        await test.Start();
+                        await test.Start(new(options.Filter));
                         return test;
                     }
                 }
 
                 var task = await Task.WhenAny(testStartedTasks);
                 var dotnetTest = await task;
-                testStartedTasks.Remove(task);
+                _ = testStartedTasks.Remove(task);
                 renderer.Redraw(dotnetTest);
             }
 
@@ -81,10 +80,6 @@ namespace CliTest.Cli
 
             var failedTests = tests.Where(t => t.Status == TestStatus.Failed);
             renderer.WriteTestsOutput(failedTests);
-        }
-
-        private static void HandleParserErrors(CommandLine.NotParsed<Options> notParsed)
-        {
         }
     }
 }
