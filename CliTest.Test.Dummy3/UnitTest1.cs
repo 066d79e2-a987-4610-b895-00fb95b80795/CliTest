@@ -10,7 +10,6 @@ namespace CliTest.Test.Dummy3
         public async Task Test1()
         {
             await Task.Delay(TimeSpan.FromSeconds(2));
-            Assert.True(false);
         }
     }
 }

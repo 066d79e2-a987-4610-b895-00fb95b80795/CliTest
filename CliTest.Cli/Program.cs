@@ -47,6 +47,13 @@ namespace CliTest.Cli
             var terminal = AnsiTerminalFactory.CreateAnsiTerminal();
             var renderer = new TestRenderer(terminal);
             var tests = DotnetTestFactory.CreateAllTestsInDirectory(ProcessRunnerFactory.Create());
+
+            var previouslyFailedTests = await LoadPreviouslyFailedTests();
+            tests = tests
+                .OrderByDescending(t => previouslyFailedTests.Contains(t.Directory))
+                .ThenBy(t => t.Directory)
+                .ToArray();
+
             var testsToStart = tests.ToList();
             var testStartedTasks = new List<Task<IDotnetTest>>();
 
@@ -76,12 +83,53 @@ namespace CliTest.Cli
                 renderer.Redraw(dotnetTest);
             }
 
+            await HandleFailedTests(tests, renderer);
+        }
+
+        private static async Task HandleFailedTests(IEnumerable<IDotnetTest> tests, TestRenderer renderer)
+        {
             var failedTests = tests.Where(t => t.Status == TestStatus.Failed);
-            if (failedTests.Any())
+            await SaveFailedTests(failedTests);
+
+            if (!failedTests.Any())
             {
-                await Task.Delay(TimeSpan.FromSeconds(1.3));
-                renderer.WriteTestsOutput(failedTests);
+                return;
+            }
+
+            await Task.Delay(TimeSpan.FromSeconds(1.3));
+            renderer.WriteTestsOutput(failedTests);
+        }
+
+        // XXX This save/load logic should be encapsulated in a class of its own
+        // The interface should be simply bool HasPreviouslyFailed() and SaveFailedTests()
+        // Do this after refactoring this to be a Main project
+
+        private static async Task<string[]> LoadPreviouslyFailedTests()
+        {
+            try
+            {
+                using var reader = new StreamReader(FailedTestsStoragePath);
+                var text = await reader.ReadToEndAsync();
+                return text.Split("\n");
+            }
+            catch (FileNotFoundException)
+            {
+                return Array.Empty<string>();
             }
         }
+
+        private static async Task SaveFailedTests(IEnumerable<IDotnetTest> failedTests)
+        {
+            if (failedTests.Any(t => t.Status != TestStatus.Failed))
+            {
+                throw new ArgumentException("All tests should have failed", nameof(failedTests));
+            }
+
+            using var writer = new StreamWriter(FailedTestsStoragePath);
+            await writer.WriteAsync(string.Join('\n', failedTests.Select(t => t.Directory)));
+        }
+
+        // XXX The test failures should be scoped by solution directory
+        private static string FailedTestsStoragePath => $"{Environment.GetEnvironmentVariable("HOME")}/.clitest.failed";
     }
 }
