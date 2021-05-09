@@ -5,7 +5,7 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Infrastructure", "CliTest.Infrastructure\CliTest.Infrastructure.csproj", "{64AAC439-14EC-44B3-9999-CDE88D26CE9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Cli", "CliTest.Cli\CliTest.Cli.csproj", "{925C3A26-846A-433E-AEE7-6DF65817E351}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Main", "CliTest.Main\CliTest.Main.csproj", "{925C3A26-846A-433E-AEE7-6DF65817E351}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Core", "CliTest.Core\CliTest.Core.csproj", "{7FDB3171-506A-4C63-9BF6-BBC159AFF9CC}"
 EndProject
