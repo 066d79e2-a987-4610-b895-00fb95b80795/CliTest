@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.AnsiTerminal", "CliTest.AnsiTerminal\CliTest.AnsiTerminal.csproj", "{64AAC439-14EC-44B3-9999-CDE88D26CE9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Infrastructure", "CliTest.Infrastructure\CliTest.Infrastructure.csproj", "{64AAC439-14EC-44B3-9999-CDE88D26CE9E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CliTest.Cli", "CliTest.Cli\CliTest.Cli.csproj", "{925C3A26-846A-433E-AEE7-6DF65817E351}"
 EndProject

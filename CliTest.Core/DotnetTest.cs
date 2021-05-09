@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,16 +25,23 @@ namespace CliTest.Core
 
     internal class DotnetTest : IDotnetTest
     {
-        public DotnetTest(string directory) => Directory = directory;
+        private readonly IProcessRunner processRunner;
+
+        public DotnetTest(string directory, IProcessRunner processRunner)
+        {
+            Directory = directory;
+            this.processRunner = processRunner;
+        }
 
         public async Task Start(StartOptions options)
         {
             Status = TestStatus.Running;
-            var processResult = await ProcessRunner.RunProcess(
-                "dotnet",
-                "test",
-                $"--filter={options.Filter ?? ""}",
-                Directory);
+            var arguments = new List<string>() { "test", Directory };
+            if (options.Filter != null)
+            {
+                arguments.Add($"--filter={options.Filter}");
+            }
+            var processResult = await processRunner.RunProcess("dotnet", arguments);
             Status = processResult.ExitCode == 0 ? TestStatus.Succeeded : TestStatus.Failed;
             Output = processResult.Output;
         }
@@ -47,13 +55,14 @@ namespace CliTest.Core
 
     public static class DotnetTestFactory
     {
-        public static IDotnetTest Create(string directory) => new DotnetTest(directory);
+        public static IDotnetTest Create(string directory, IProcessRunner processRunner) =>
+            new DotnetTest(directory, processRunner);
 
-        public static IDotnetTest[] CreateAllTestsInDirectory() =>
+        public static IDotnetTest[] CreateAllTestsInDirectory(IProcessRunner processRunner) =>
             Directory
                 .GetDirectories(".")
                 .Where(d => d.ToLowerInvariant().Contains(".tests.") || d.ToLowerInvariant().Contains(".test."))
-                .Select(d => Create(d))
+                .Select(d => Create(d, processRunner))
                 .ToArray();
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using CliTest.AnsiTerminal;
 using CliTest.Core;
+using CliTest.Infrastructure;
 
 namespace CliTest.Cli
 {
@@ -46,7 +46,7 @@ namespace CliTest.Cli
             Directory.SetCurrentDirectory(options.TargetDirectory);
             var terminal = AnsiTerminalFactory.CreateAnsiTerminal();
             var renderer = new TestRenderer(terminal);
-            var tests = DotnetTestFactory.CreateAllTestsInDirectory();
+            var tests = DotnetTestFactory.CreateAllTestsInDirectory(ProcessRunnerFactory.Create());
             var testsToStart = tests.ToList();
             var testStartedTasks = new List<Task<IDotnetTest>>();
 
@@ -76,10 +76,12 @@ namespace CliTest.Cli
                 renderer.Redraw(dotnetTest);
             }
 
-            await Task.Delay(TimeSpan.FromSeconds(2));
-
             var failedTests = tests.Where(t => t.Status == TestStatus.Failed);
-            renderer.WriteTestsOutput(failedTests);
+            if (failedTests.Any())
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1.3));
+                renderer.WriteTestsOutput(failedTests);
+            }
         }
     }
 }

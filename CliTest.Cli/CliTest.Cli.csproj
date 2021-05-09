@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CliTest.AnsiTerminal\CliTest.AnsiTerminal.csproj" />
+    <ProjectReference Include="..\CliTest.Infrastructure\CliTest.Infrastructure.csproj" />
     <ProjectReference Include="..\CliTest.Core\CliTest.Core.csproj" />
   </ItemGroup>
 

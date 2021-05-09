@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace CliTest.AnsiTerminal
+namespace CliTest.Infrastructure
 {
     public interface IAnsiTerminal
     {

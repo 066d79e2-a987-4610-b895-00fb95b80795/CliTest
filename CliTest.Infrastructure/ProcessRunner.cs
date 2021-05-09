@@ -1,12 +1,14 @@
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
+using CliTest.Core;
 
-namespace CliTest.Core
+namespace CliTest.Infrastructure
 {
-    internal static class ProcessRunner
+    internal class ProcessRunner : IProcessRunner
     {
-        public static async Task<ProcessResult> RunProcess(string program, params string[] arguments)
+        public async Task<ProcessResult> RunProcess(string program, IEnumerable<string> arguments)
         {
             var outputBuilder = new StringBuilder();
             var process = new Process();
@@ -17,10 +19,9 @@ namespace CliTest.Core
             {
                 process.StartInfo.ArgumentList.Add(argument);
             }
-            // XXX I could color stdout red
             process.OutputDataReceived += (_, e) => outputBuilder.AppendLine(e.Data);
             process.ErrorDataReceived += (_, e) => outputBuilder.AppendLine(e.Data);
-            process.Start();
+            _ = process.Start();
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             await process.WaitForExitAsync();
@@ -28,5 +29,8 @@ namespace CliTest.Core
         }
     }
 
-    public record ProcessResult(string Output, int ExitCode);
+    public static class ProcessRunnerFactory
+    {
+        public static IProcessRunner Create() => new ProcessRunner();
+    }
 }

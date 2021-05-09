@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using CliTest.AnsiTerminal;
 using CliTest.Core;
+using CliTest.Infrastructure;
 
 namespace CliTest.Cli
 {
