@@ -8,18 +8,46 @@ using CliTest.Core;
 
 namespace CliTest.Cli
 {
-    class Program
+    internal record Options
     {
-        static async Task Main(string[] args)
+        [CommandLine.Option(Required = false, HelpText = "Test filters, same as the --filter parameter for dotnet test.")]
+        public string? Filter { get; set; }
+
+        [CommandLine.Option(Required = false, HelpText = "Number of tests to run in parallel.")]
+        public int Parallelism { get; set; } = 2;
+
+        [CommandLine.Value(0, HelpText = "Directory of solution or project to run tests for.")]
+        public string TargetDirectory { get; set; } = ".";
+    }
+
+    internal static class Program
+    {
+        static async Task<int> Main(string[] args)
         {
-            var targetDirectory = args.SingleOrDefault() ?? ".";
+            var parseResult = CommandLine.Parser.Default.ParseArguments<Options>(args);
 
-            var parallelism = 2;
+            if (parseResult is CommandLine.NotParsed<Options> notParsed)
+            {
+                HandleParserErrors(notParsed);
+                return 1;
+            }
 
-            Directory.SetCurrentDirectory(targetDirectory);
+            if (parseResult is CommandLine.Parsed<Options> parsed)
+            {
+                var options = parsed.Value;
+                await MainLoop(options);
+                return 0;
+            }
+
+            throw new InvalidOperationException("Should be either parsed or not");
+        }
+
+        private static async Task MainLoop(Options options)
+        {
+            Directory.SetCurrentDirectory(options.TargetDirectory);
             var terminal = AnsiTerminalFactory.CreateAnsiTerminal();
             var renderer = new TestRenderer(terminal);
-            var tests = DotnetTestFactory.CreateAllTestsInDirectory(targetDirectory);
+            var tests = DotnetTestFactory.CreateAllTestsInDirectory(options.TargetDirectory);
             var testsToStart = tests.ToList();
             var testStartedTasks = new List<Task<IDotnetTest>>();
 
@@ -30,7 +58,7 @@ namespace CliTest.Cli
 
             while (testsToStart.Any() || testStartedTasks.Any())
             {
-                while (testStartedTasks.Count < parallelism)
+                while (testStartedTasks.Count < options.Parallelism && testsToStart.Any())
                 {
                     var test = testsToStart.PopFirst();
                     testStartedTasks.Add(CreateTestStartedTask());
@@ -40,11 +68,6 @@ namespace CliTest.Cli
                     {
                         await test.Start();
                         return test;
-                    }
-
-                    if (testStartedTasks.Count == 0)
-                    {
-                        break;
                     }
                 }
 
@@ -58,6 +81,10 @@ namespace CliTest.Cli
 
             var failedTests = tests.Where(t => t.Status == TestStatus.Failed);
             renderer.WriteTestsOutput(failedTests);
+        }
+
+        private static void HandleParserErrors(CommandLine.NotParsed<Options> notParsed)
+        {
         }
     }
 }
