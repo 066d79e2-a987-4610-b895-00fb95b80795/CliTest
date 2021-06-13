@@ -9,6 +9,12 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+
+    <PackageId>CliTest</PackageId>
+    <Version>1.0.0</Version>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>clitest</ToolCommandName>
+    <PackageOutputPath>../nupkg</PackageOutputPath>
   </PropertyGroup>
 
 </Project>
